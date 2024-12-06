@@ -1,0 +1,773 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .portfolio {
+    display: flex;
+    width: 100%;
+  }
+  
+  /* Sidebar fixa */
+  .sidebar {
+    width: 15%;
+    background-color: var(--azul-escuro);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    height: 100vh;
+    position: fixed;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar.hidden {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar .profile .img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    background-color: white;
+    border: 10px solid var(--azul-medio);
+    background-image: url('/assets/img/foto-perfil.jpg');
+    background-position: center;
+    background-size: cover;
+    transition: background-size 0.2s ease, transform 0.2s ease; /* Suavidade adicionada */
+  }
+  
+  .sidebar .profile .img:hover {
+    background-size: 120%; /* Ampliação no hover */
+    transform: scale(1.05); /* Efeito sutil de zoom */
+    border: 10px solid var(--vermelho);
+  }
+  
+  
+  .sidebar .profile h2 {
+    text-align: center;
+  }
+  
+  .sidebar .menu {
+    list-style: none;
+    margin-top: 2rem;
+    width: 100%;
+  }
+  
+  .sidebar .menu li {
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  
+
+  .menu li a{
+    text-decoration: none;
+    color: var(--azul-claro);
+  }
+  
+.menu a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px; /* Espessura da borda */
+    width: 0; /* Inicialmente invisível */
+    background-color: white; /* Cor da borda */
+    transition: width 0.4s ease; /* Animação da borda */
+}
+
+.menu a:hover::after {
+    width: 50%; /* Expande a borda */
+}
+
+.menu a:hover{
+    color: white;
+}
+
+.menu li.active a {
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+  
+  .whatsapp-button {
+    margin-top: auto;
+    padding: 1rem;
+    background-color: var(--vermelho);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    width: 100%;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .whatsapp-button:hover {
+    background-color: #f30606;
+  }
+
+  .rede-sociais {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+    height: 100%;
+    width: 100%;
+    justify-items: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    gap: 1rem; /* Espaçamento entre os itens, se necessário */
+    padding: 0;
+    margin: 0;
+}
+
+.rede-sociais li {
+    display: flex; /* Necessário para centralizar o ícone */
+    align-items: center;
+    justify-content: center;
+}
+
+.rede-sociais i {
+    color: var(--azul-claro); /* Cor dos ícones */
+    font-size: 2.5rem; /* Tamanho dos ícones */
+    transition: transform 0.2s;
+}
+
+.rede-sociais i:hover {
+    transform: scale(1.4); /* Aumenta o ícone ao passar o mouse */
+}
+
+  
+  
+  /* Conteúdo principal */
+  .content {
+    margin-left: 15%;
+    width: 85%;
+    height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+  
+  .section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .home {
+    background-image: url('/assets/img/avatar-programador.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    font-size: 2em;
+    color: white;
+  }
+
+  .home h1{
+    animation:slidIn 0.7s linear;
+  }
+
+  .home a{
+    text-decoration: none;
+    color: white;
+  }
+
+
+/* Estilo para o parágrafo */
+#typing-text {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid transparent;
+  animation: blink-caret 0.7s step-end infinite;
+}
+
+/* Animação do cursor piscando */
+@keyframes blink-caret {
+  50% {
+    border-color: black;
+  }
+}
+
+
+
+  @keyframes slidIn {
+    0%{
+        transform: translateX(-200%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+  }
+  
+  .home button {
+    margin-top: 50px;
+    border-radius: 20px;
+    padding: 10px 40px;
+    font-size: 0.5em;
+    background-color: var(--azul-escuro);
+    color: var(--azul-claro);
+    border: 2px solid var(--azul-medio);
+    transition: all 0.3s;
+  }
+  
+  .home button:hover {
+    cursor: pointer;
+    background-color: var(--vermelho);
+    transform: scale(1.1);
+    color: white;
+  }
+
+  .home button a{
+    text-decoration: none;
+    color:white
+  }
+  
+  .scroll-indicator {
+    position: absolute;
+    font-size: 2rem;
+    bottom: 5%;
+    cursor: pointer;
+    animation: bounce 1.5s ease infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(100%);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      left: 0;
+      top: 0;
+      transform: translateX(-100%);
+    }
+  
+    .content {
+      margin-left: 0;
+      width: 100%;
+    }
+  
+    .hamburger {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1100;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+
+    }
+  
+    .hamburger div {
+      width: 100%;
+      height: 5px;
+      background-color: #fffbfb;
+      border-radius: 5px;
+    }
+  }
+
+  /* Menu visível (padrão em telas maiores) */
+  .sidebar {
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  
+
+
+
+  /* Seção Sobre Mim */
+.about-section {
+    padding: 2rem;
+    background-color: var(--azul-escuro); /* Fundo escuro */
+    color: #fff; /* Texto branco */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .about-left {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 2rem;
+  }
+  
+  .about-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    position: relative;
+    background-image: url('/assets/img/SOBRE\ MIM.svg');
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+  }
+
+  @media (max-width: 700px) {
+    .about-section h2 {
+        font-size: 2rem;
+        background-size: cover;
+        height: 60px;
+        margin: 1px auto 0;
+      }
+
+}
+  
+  .about-section h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--vermelho); /* Vermelho */
+    margin: 0.5rem auto 0;
+
+  }
+  
+  .about-left h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+  
+  .about-left h3 span {
+    color: var(--vermelho); /* Vermelho */
+  }
+  
+  .about-left p {
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: rgb(212, 212, 212); /* Cinza claro */
+  }
+  
+  .about-right {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .personal-info {
+    list-style: none;
+    line-height: 2;
+  }
+  
+  .personal-info li {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .personal-info li strong {
+    color: var(--azul-claro);
+  }
+  
+  .personal-info li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .whatsapp-button {
+    display: inline-block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem 2rem;
+    background-color: var(--vermelho);
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .whatsapp-button:hover {
+    background-color: #e96262;
+  }
+  
+  /* Estatísticas */
+  .about-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .stat {
+    text-align: center;
+    min-width: 150px;
+  }
+  
+  .stat h4 {
+    font-size: 2rem;
+    color: var(--vermelho);
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat p {
+    font-size: 1rem;
+    color: white;
+  }
+  
+
+
+
+
+  /* Seção de Serviços */
+.services-section {
+    padding: 4rem 2rem;
+    background-color:var(--azul-medio); /* Fundo escuro */
+    color: #fff; /* Texto branco */
+    text-align: center;
+  }
+  
+  .services-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    position: relative;
+    background-image: url('/assets/img/TALENTO.svg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100px;
+    align-content: center;
+  }
+
+  @media (max-width: 700px) {
+    .services-section h2 {
+        font-size: 2rem;
+        background-size: cover;
+        height: 90px;
+        margin: 1px auto 0;
+      }
+
+}
+  
+  .services-section h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #e63946; /* Vermelho */
+    margin: 0.5rem auto 0;
+  }
+  
+  .services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .service-item {
+    background-color: #1d1d1d; /* Card escuro */
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .service-item:hover {
+    transform: translateY(-10px); /* Efeito ao passar o mouse */
+  }
+  
+  .service-icon {
+    font-size: 2rem;
+    color: var(--vermelho); /* Vermelho */
+    margin-bottom: 1rem;
+  }
+  
+  .service-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .service-item p {
+    font-size: 1rem;
+    color: #d3d3d3; /* Cinza claro */
+    line-height: 1.5;
+  }
+  
+
+
+
+
+
+
+  .resume-section {
+    padding: 4rem 2rem;
+    background-color: var(--azul-escuro); /* Fundo escuro */
+    color: white; /* Texto branco */
+    text-align: center;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    position: relative;
+    background-image: url('/assets/img/RESUMO.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 150px;
+    align-content: center;
+  }
+  
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--vermelho);
+    margin: 10px auto 0;
+  }
+  
+  .job-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .job-card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2);
+  }
+  
+  .job-card .date {
+    display: inline-block;
+    background-color: var(verm);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  
+  .job-card h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  .job-card h4 {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-bottom: 10px;
+    color: #ff4500;
+  }
+  
+  .job-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 5px 0;
+  }
+  
+  strong {
+    color: #ff4500;
+  }
+
+
+
+
+
+  .skills-section {
+    padding: 60px 20px;
+    background-color: var(--azul-medio);
+    color: #fff;
+  }
+  
+  .section-title-skills {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    position: relative;
+    background-image: url('/assets/img/PORTIFOLIO.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 100px 0px;
+  }
+  
+  .section-title-skills::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #ff4500;
+    margin: 10px auto 0;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .skill-card {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .skill-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+  
+  .skill-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ff4500;
+  }
+  
+  .skill-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+
+
+  .contact-section {
+    padding: 60px 20px;
+    background-color: #1a1a1a;
+    color: #fff;
+  }
+  
+  .contact-section .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    position: relative;
+    background-image: url('/assets/img/CONTATO.svg');
+    
+  }
+  
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #ff4500;
+    margin: 10px auto 0;
+  }
+  
+  .contact-description {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #b3b3b3;
+  }
+  
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #ff4500;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #ff4500;
+    outline: none;
+  }
+  
+  .contact-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4500;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-button:hover {
+    background-color: #e63900;
+  }
+  
