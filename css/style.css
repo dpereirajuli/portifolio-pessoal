@@ -196,8 +196,7 @@
 
 /* Estilo para o parágrafo */
 #typing-text {
-  white-space: nowrap;
-  overflow: hidden;
+
   border-right: 2px solid transparent;
   animation: blink-caret 0.7s step-end infinite;
 }
