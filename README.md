@@ -12,4 +12,4 @@ Linguagens: Html, Css e Js.
 
 
 🌐 Acesse o Portfólio
-Acesse meu portfólio online através do link:
+Acesse meu portfólio online através do link: https://dpereirajuli.github.io/portifolio-pessoal/
